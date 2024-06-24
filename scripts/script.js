@@ -30,30 +30,42 @@ document.addEventListener("DOMContentLoaded", function() {
             </div>
         `;
 
-        document.querySelector('.header__button__ip').addEventListener('click', function() {
-            const textToCopy = "mc.klickla.ru";
-            const element = this;
-            navigator.clipboard.writeText("mc.klickla.ru").then(function() {
-                const originalText = element.textContent;
-                element.classList.add('fade-out');
-                setTimeout(function() {
-                    element.textContent = "Скопировано!";
-                    element.classList.remove('fade-out');
-                    element.classList.add('fade-in');
-                }, 250);
-
-                setTimeout(function() {
-                    element.classList.remove('fade-in');
+        const buttonIp = document.querySelector('.header__button__ip');
+        
+        if (navigator.clipboard) {
+            buttonIp.addEventListener('click', function() {
+                const textToCopy = "mc.klickla.ru";
+                const element = this;
+                navigator.clipboard.writeText(textToCopy).then(function() {
+                    const originalText = element.textContent;
                     element.classList.add('fade-out');
                     setTimeout(function() {
-                        element.textContent = originalText;
+                        element.textContent = "Скопировано!";
                         element.classList.remove('fade-out');
                         element.classList.add('fade-in');
                     }, 250);
-                }, 2000);
-            }).catch(function(error) {
-                console.error('Ошибка копирования текста: ', error);
+
+                    setTimeout(function() {
+                        element.classList.remove('fade-in');
+                        element.classList.add('fade-out');
+                        setTimeout(function() {
+                            element.textContent = originalText;
+                            element.classList.remove('fade-out');
+                            element.classList.add('fade-in');
+                        }, 250);
+                    }, 2000);
+                }).catch(function(error) {
+                    console.error('Ошибка копирования текста: ', error);
+                });
             });
-        });
+        } else {
+            console.error('Clipboard API not supported');
+        }
     }, 2000);
 });
+
+
+
+
+
+
