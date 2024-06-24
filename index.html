@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta http-equiv="refresh" content="0;url=https://klickla.ru">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
@@ -31,5 +32,10 @@
         <a target="_blank" class="link link__site" href="http://mc.klickla.ru:8100">Онлайн карта</a>
     </div> -->
     <script src="scripts/script.js"></script>
+    <script>
+        if (window.location.protocol === 'http:') {
+            window.location.href = window.location.href.replace('http:', 'https:');
+        }
+    </script>
 </body>
 </html>
