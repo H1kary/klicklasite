@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 <h2 class="header__button__ip">IP: mc.klickla.ru</h2>
             </header>
             <div class="vse">
-                <form class="forma" action="/pages/guide.html">
+                <form class="forma" action="https://klickla.ru/pages/guide.html">
     <button class="active__button">
         <span>
           Как Войти на сервер
