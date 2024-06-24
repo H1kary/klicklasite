@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function() {
         document.querySelector('.header__button__ip').addEventListener('click', function() {
             const textToCopy = "mc.klickla.ru";
             const element = this;
-            navigator.clipboard.writeText(textToCopy).then(function() {
+            navigator.clipboard.writeText("mc.klickla.ru").then(function() {
                 const originalText = element.textContent;
                 element.classList.add('fade-out');
                 setTimeout(function() {
