@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function() {
             </div>
         </div>
         <div class="goin__back">
-            <form class="goin__back__form" action="../index.html">
+            <form class="goin__back__form" action="https://klickla.ru">
                 <button class="goin__back__form__button">
                     <span class="button_top goin__back__form__button__span"> Вернуться
                     </span>
