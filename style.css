@@ -4,7 +4,15 @@
     font-family: "Montserrat", sans-serif;
 }
 
+html{
+      margin: 0;
+      align-items: center;
+      justify-content: center;
+}
+
 body{
+    margin: 0;
+    justify-content: center;
     background-color: black;
     color: #fff;
     background: #000000;
@@ -100,26 +108,31 @@ body{
     }
   }
 
+header{
+  max-height: 20vh;
+}
+
 .header__klickla{
     font-size: 64px;
     margin: 0 auto;
     margin-top: 20px;
-    color: #fff;
     display: flex;
+    align-items: center;
     justify-content: center;
 }
 
 .vse {
-    position: absolute;
+    margin: 0 auto;
+    margin-top: 25vh;
+    /* position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
+    transform: translate(-50%, -50%); */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: #fff;
+    text-align: center;
     font-size: 24px;
 }
 .vse form{
@@ -128,19 +141,53 @@ body{
 
 
 .header__button__ip {
+  max-width: fit-content;
     margin: 0 auto;
     margin-top: 16px;
     display: flex;
     justify-content: center;
-    color: #fff;
     cursor: pointer;
     transition: color 0.5s, opacity 0.5s;
 }
 
-.header__button__ip:hover{
-    color: red;
+@media (hover: hover){
+  .header__button__ip:hover{
+    color: #353535;
+  }
 }
 
+@media (hover: none){
+  .header__button__ip:active{
+    color: #fff;
+  }
+}
+/*///////////////////////////////*/
+.hidden {
+  display: none;
+}
+.fade-out {
+  animation: fadeOutScale 1s forwards;
+}
+.fade-in {
+  animation: fadeInScale 1s forwards;
+}
+@keyframes fadeOutScale {
+  to {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+/*///////////////////////////////*/
 .header__button__ip.fade-out {
     opacity: 0;
 }
@@ -160,6 +207,8 @@ body{
 
 
 .active__button {
+  color: #fff;
+  cursor: pointer;
   border: 2px solid #24b4fb;
   background-color: #24b4fb;
   border-radius: 0.9em;
@@ -172,7 +221,6 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #fff;
   font-weight: 600;
  }
  
@@ -182,7 +230,6 @@ body{
 
 
 .discord{
-  color: white;
   max-width: 50px;
   max-height: 50px;
 }
@@ -195,3 +242,137 @@ body{
 .discord__button:hover{
   border: 2px solid #24b4fb;
 }
+
+/*///////////////////////////*/
+/* .new-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+} */
+
+.card1 {
+  position: absolute;
+  top: 30vh;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 290px;
+  height: 70px;
+  background: #353535;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  backdrop-filter: blur(10px);
+  transition: 0.5s ease-in-out;
+}
+
+.card1:hover {
+  cursor: pointer;
+  transform: scale(1.05) translate(-50%, -50%);
+}
+
+.card2 {
+  position: absolute;
+  top: 40vh;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 290px;
+  height: 70px;
+  background: #353535;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  backdrop-filter: blur(10px);
+  transition: 0.5s ease-in-out;
+}
+
+.card2:hover {
+  cursor: pointer;
+  transform: scale(1.05) translate(-50%, -50%);
+}
+
+.card3 {
+  position: absolute;
+  top: 50vh;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 290px;
+  height: 70px;
+  background: #353535;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  backdrop-filter: blur(10px);
+  transition: 0.5s ease-in-out;
+}
+
+.card3:hover {
+  cursor: pointer;
+  transform: scale(1.05) translate(-50%, -50%);
+}
+
+.card4 {
+  position: absolute;
+  top: 60vh;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 290px;
+  height: 70px;
+  background: #353535;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  backdrop-filter: blur(10px);
+  transition: 0.5s ease-in-out;
+}
+
+.card4:hover {
+  cursor: pointer;
+  transform: scale(1.05) translate(-50%, -50%);
+}
+
+.number {
+  font-size:32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  margin-left: 10px;
+  border-radius: 10px;
+  background: #fff;
+  font-weight: 600;
+  color: #000000;
+}
+
+.textBox {
+  width: calc(100% - 90px);
+  margin-left: 10px;
+  color: white;
+}
+
+.textContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-heading {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.card-text {
+  font-size: 12px;
+  font-weight: lighter;
+}
+/*///////////////////////////*/

@@ -1,22 +1,14 @@
-if (window.location.protocol === 'http:') {
-    window.location.href = window.location.href.replace('http:', 'https:');
-}
 
 document.addEventListener("DOMContentLoaded", function() {
-    setTimeout(function() {
         document.body.innerHTML = `
-            <header>
-                <h1 class="header__klickla" id="klickla">Klickla</h1>
-                <h2 class="header__button__ip">IP: mc.klickla.ru</h2>
-            </header>
-            <div class="vse">
-                <form class="forma" action="https://klickla.ru/pages/guide.html">
-    <button class="active__button">
-        <span>
-          Как Войти на сервер
-        </span>
-      </button>
-    </form>
+<header>
+    <h1 class="header__klickla" id="klickla">Klickla</h1>
+    <h2 class="header__button__ip">IP: mc.klickla.ru</h2>
+</header>
+<div class="vse">
+    <button type="button" class="active__button">
+      <span>Как Войти на сервер</span>
+    </button>
     <form class="forma" action="http://mc.klickla.ru:8100" target="_blank">
     <button class="active__button">
         <span>
@@ -31,7 +23,52 @@ document.addEventListener("DOMContentLoaded", function() {
         </span>
       </button>
     </form>
-            </div>
+</div>
+
+<div class="new-content hidden">
+    <div class="card1">
+      <div class="number">1</div>
+      <div class="textBox">
+        <div class="textContent">
+          <p class="card-heading">Версия игры</p>
+        </div>
+        <p class="card-text">Minecraft 1.21</p>
+      </div>
+    </div>
+  </div>
+  <div class="new-content hidden">
+    <div class="card2">
+      <div class="number">2</div>
+      <div class="textBox">
+        <div class="textContent">
+          <p class="card-heading">Прочитать правила</p>
+        </div>
+        <p class="card-text">#📌┃правила</p>
+      </div>
+    </div>
+  </div>
+  <div class="new-content hidden">
+    <div class="card3">
+      <div class="number">3</div>
+      <div class="textBox">
+        <div class="textContent">
+          <p class="card-heading">Создать Тикет</p>
+        </div>
+        <p class="card-text">#📩┃создать-заявку</p>
+      </div>
+    </div>
+  </div>
+  <div class="new-content hidden">
+    <div class="card4">
+      <div class="number">4</div>
+      <div class="textBox">
+        <div class="textContent">
+          <p class="card-heading">Ожидать добавления</p>
+        </div>
+        <p class="card-text">Скоро модераторы проверят твой тикет</p>
+      </div>
+    </div>
+  </div>
         `;
 
         const buttonIp = document.querySelector('.header__button__ip');
@@ -56,7 +93,12 @@ document.addEventListener("DOMContentLoaded", function() {
                             element.textContent = originalText;
                             element.classList.remove('fade-out');
                             element.classList.add('fade-in');
+                            // element.classList.remove('fade-in')
                         }, 250);
+                        setTimeout(function() {
+                            element.textContent = originalText;
+                            element.classList.remove('fade-in')
+                        }, 1100);
                     }, 2000);
                 }).catch(function(error) {
                     console.error('Ошибка копирования текста: ', error);
@@ -66,10 +108,44 @@ document.addEventListener("DOMContentLoaded", function() {
             console.error('Clipboard API not supported');
         }
     }, 2000);
-});
 
 
+    // document.addEventListener('DOMContentLoaded', function() {
+    //     const button = document.querySelector('.active__button');
+    //     const oldContent = document.querySelectorAll('body > :not(.new-content)');
+    //     const newContent = document.querySelector('.new-content');
+  
+    //     button.addEventListener('click', function() {
+    //       oldContent.forEach(element => {
+    //         element.classList.add('fade-out');
+    //         element.addEventListener('animationend', function() {
+    //           element.style.display = 'none';
+    //           if (Array.from(oldContent).every(elem => getComputedStyle(elem).display === 'none')) {
+    //             newContent.classList.remove('hidden');
+    //             newContent.classList.add('fade-in');
+    //           }
+    //         }, { once: true });
+    //       });
+    //     });
+    //   });
 
-
-
-
+    document.addEventListener('DOMContentLoaded', function() {
+        const button = document.querySelector('.active__button');
+        const oldContent = document.querySelectorAll('body > :not(.new-content)');
+        const newContent = document.querySelectorAll('.new-content');
+  
+        button.addEventListener('click', function() {
+          oldContent.forEach(element => {
+            element.classList.add('fade-out');
+            element.addEventListener('animationend', function() {
+              element.style.display = 'none';
+              if (Array.from(oldContent).every(elem => getComputedStyle(elem).display === 'none')) {
+                newContent.forEach(element => {
+                    element.classList.remove('hidden');
+                    element.classList.add('fade-in');
+                })
+              }
+            }, { once: true });
+          });
+        });
+      });
